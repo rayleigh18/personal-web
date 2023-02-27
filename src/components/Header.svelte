@@ -27,16 +27,15 @@
 </main>
 
 <style lang="scss">
-	$font-color: #ece3e3;
+	$font-color: #ccd6f6;
 
 	main {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 30px 10%;
 		min-height: 8vh;
 		background-image: none;
-		background-color: darkred;
+		background-color: #0a192f;
 		position: relative;
 		z-index: 100;
 
@@ -52,7 +51,7 @@
 	}
 
 	.burger {
-		background-color: darkred;
+		background-color: #0a192f;
 		display: block;
 		cursor: pointer;
 
