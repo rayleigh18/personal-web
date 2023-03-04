@@ -33,9 +33,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		min-height: 8vh;
+		min-height: 10vh;
 		background-image: none;
-		background-color: #0a192f;
+		background-color: var(--background-color);
 		position: relative;
 		z-index: 100;
 
@@ -51,7 +51,7 @@
 	}
 
 	.burger {
-		background-color: #0a192f;
+		background-color: var(--background-color);
 		display: block;
 		cursor: pointer;
 
