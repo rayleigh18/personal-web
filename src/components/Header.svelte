@@ -30,6 +30,8 @@
 	$font-color: #ccd6f6;
 
 	main {
+		padding: 0;
+		margin: 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

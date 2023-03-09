@@ -1,6 +1,18 @@
 <script>
 	import Header from '../components/Header.svelte';
+	import { handleLetsConnect, isLetsConnectOpened } from './intro';
+	let classSocialMedia = 'disabled';
+	let classButtonConnect = 'big-connect';
+
+	isLetsConnectOpened.subscribe((isLetsConnectOpenedValue) => {
+		classSocialMedia = isLetsConnectOpenedValue ? 'social-media' : 'disabled';
+		classButtonConnect = (isLetsConnectOpenedValue ? 'disabled' : 'big-connect');
+	});
 </script>
+
+<svelte:head>
+	<title>See Oktavianus</title>
+</svelte:head>
 
 <main>
 	<Header />
@@ -14,6 +26,18 @@
 			Currently, I'm focused on backend development and find my way in this world. Put the bread to
 			the table by working on Xendit.
 		</p>
+		<div
+			on:mouseenter={() => handleLetsConnect(true)}
+			on:mouseleave={() => handleLetsConnect(false)}
+		>
+			<button class={classButtonConnect}>Lets connect</button>
+			<div class={classSocialMedia}>
+				<a href="https://www.instagram.com/irvan.sitanggang/"><span class="fa fa-instagram" /></a>
+				<a href="https://twitter.com/FindIrvan/"><span class="fa fa-twitter" /></a>
+				<a href="https://www.linkedin.com/in/oktavianusirvans/"><span class="fa fa-linkedin" /></a>
+				<a href="https://www.facebook.com/irvan.sitanggang.98/"><span class="fa fa-facebook" /></a>
+			</div>
+		</div>
 	</div>
 
 	<div class="content-portfolio">
@@ -82,6 +106,10 @@
 		--background-color: #0a192f;
 		--text-color: #ccd6f6;
 		--text-color-1: #64fed9;
+		--font-size-0: 10px;
+		--font-size-1: 20px;
+		--font-size-2: 35px;
+		--font-size-3: 60px;
 	}
 	main {
 		font-family: 'GFS Didot';
@@ -97,9 +125,14 @@
 			}
 		}
 
+		.disabled {
+			display: none;
+		}
+
 		.introduction {
 			min-height: 90vh;
-			margin-left: 10%;
+			padding-top: 3%;
+			margin-left: 15%;
 			p {
 				color: var(--text-color);
 				margin: 0;
@@ -108,32 +141,57 @@
 
 			p:first-child {
 				color: var(--text-color-1);
-				font-size: 30px;
+				font-size: var(--font-size-2);
 				margin-top: 60px;
 			}
 
 			P:nth-child(2) {
-				font-size: 80px;
+				font-size: var(--font-size-3);
 				font-weight: 900;
 				margin-top: 10px;
 				margin-bottom: 0;
 			}
 
 			p:nth-child(3) {
-				font-size: 80px;
-				margin-bottom: 40px;
+				font-size: var(--font-size-3);
+				margin-bottom: var(--font-size-2);
 				font-weight: lighter;
 			}
 
 			p:nth-child(4) {
-				font-size: 40px;
+				margin-top: 20px;
+				font-size: var(--font-size-1);
 			}
 
 			p:nth-child(5) {
-				margin-top: 20px;
-				font-size: 20px;
-				max-width: 600px;
+				font-size: var(--font-size-1);
+				max-width: 700px;
 				font-weight: 50;
+			}
+
+			.big-connect {
+				width: 300px;
+				height: 50px;
+				margin-top: 40px;
+				font-size: var(--font-size-1);
+				border-radius: 5px;
+			}
+
+			button {
+				background-color: transparent;
+				border-color: var(--text-color-1);
+				color: var(--text-color-1);
+			}
+
+			.social-media {
+				font-size: 40px;
+				margin-top: 40px;
+				height: 50px;
+				padding: 0px;
+				a {
+					color: var(--text-color-1);
+					margin-left: 20px;
+				}
 			}
 		}
 	}
