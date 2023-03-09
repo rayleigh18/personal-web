@@ -29,6 +29,7 @@
 		<div
 			on:mouseenter={() => handleLetsConnect(true)}
 			on:mouseleave={() => handleLetsConnect(false)}
+			class='container-connect'
 		>
 			<button class={classButtonConnect}>Lets connect</button>
 			<div class={classSocialMedia}>
@@ -142,13 +143,13 @@
 			p:first-child {
 				color: var(--text-color-1);
 				font-size: var(--font-size-2);
-				margin-top: 60px;
+				margin-top: 8vh;
 			}
 
 			P:nth-child(2) {
 				font-size: var(--font-size-3);
 				font-weight: 900;
-				margin-top: 10px;
+				margin-top: 1.5vh;
 				margin-bottom: 0;
 			}
 
@@ -159,7 +160,7 @@
 			}
 
 			p:nth-child(4) {
-				margin-top: 20px;
+				margin-top: 1.5vh;
 				font-size: var(--font-size-1);
 			}
 
@@ -169,10 +170,13 @@
 				font-weight: 50;
 			}
 
-			.big-connect {
+			.container-connect {
 				width: 300px;
 				height: 50px;
-				margin-top: 40px;
+				margin-top: 5vh;
+			}
+
+			.big-connect {
 				font-size: var(--font-size-1);
 				border-radius: 5px;
 			}
@@ -181,16 +185,23 @@
 				background-color: transparent;
 				border-color: var(--text-color-1);
 				color: var(--text-color-1);
+				height: 100%;
+				width: 100%;
 			}
 
 			.social-media {
 				font-size: 40px;
-				margin-top: 40px;
-				height: 50px;
+				height: 100%;
+				width : 100%;
 				padding: 0px;
 				a {
 					color: var(--text-color-1);
 					margin-left: 20px;
+				}
+
+				a:hover {
+					color: var(--text-color);
+					font-size: 45px;
 				}
 			}
 		}
