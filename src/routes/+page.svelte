@@ -42,16 +42,22 @@
 	</div>
 
 	<div class="content-portfolio">
-		<div>
-			<h1>About</h1>
+		<div class="about" id="about" >
+			<h1>A little about me</h1>
 			<p>
-				Hey, my name is Oktavianus Irvan Sitanggang and I use Okta as my nickname. My old and close
-				friend call me Okta. I'm a software developer who work on many thing, front-end, back-end,
-				architecture, microcontroller etc. I'm from Indonesia. I like music, books, and interacting.
-				I'm curious about how the world work, and want to learn new things, especially technologies
+				My name is Oktavianus Irvan Sitanggang and I use Okta as my nickname. My old and close
+				friend call me Irvan but its up to you how to call me. I'm a software developer who work on 
+				many thing, front-end, back-end, architecture, microcontroller etc. But mostly right now work on
+				backend and frontend. I'm from Indonesia. I like music, books, collaborating with people. Other 
+				thing that I liked is math and intrigued to math and use it in my daily (machine learning etc).<br><br>
+				I'm curious about how the world work, and want to learn new things, especially technologies.
+				I'm graduated from Bandung Institute of Technology with bachelor in electrical engineering with 
+				GPA 3.9. <br><br>
+				Build my way up by doing project in college and pursue career in web development. <br>
+				But hey, I'm open to anything.
 			</p>
 		</div>
-		<div>
+		<div class="work" id="work">
 			<h1>Where I've worked</h1>
 			<div>
 				<h2>Paragon Technology and Innovation</h2>
@@ -93,11 +99,15 @@
 				</ul>
 			</div>
 		</div>
-
-		<div>
+		<!-- add skill -->
+		<div class="connect" id="connect">
 			<h1>Lets Connect</h1>
-			<h2>LinkedIn</h2>
-			<h2>Instagram</h2>
+			<div class='social-media '>
+				<a href="https://www.instagram.com/irvan.sitanggang/"><span class="fa fa-instagram" /></a>
+				<a href="https://twitter.com/FindIrvan/"><span class="fa fa-twitter" /></a>
+				<a href="https://www.linkedin.com/in/oktavianusirvans/"><span class="fa fa-linkedin" /></a>
+				<a href="https://www.facebook.com/irvan.sitanggang.98/"><span class="fa fa-facebook" /></a>
+			</div>
 		</div>
 	</div>
 </main>
@@ -105,30 +115,70 @@
 <style lang="scss">
 	:global(:root) {
 		--background-color: #0a192f;
-		--text-color: #ccd6f6;
+		--text-color: #ccd6f6f2;
 		--text-color-1: #64fed9;
+
+		--font-family-sec-1: 'Libre Baskerville';
 		--font-size-0: 10px;
-		--font-size-1: 20px;
-		--font-size-2: 35px;
-		--font-size-3: 60px;
+		--font-size-1: 19px;
+		--font-size-2: 33px;
+		--font-size-3: 55px;
+
+		--font-size-sec-0: 15px;
 	}
 	main {
 		font-family: 'GFS Didot';
 		padding: 30px 10%;
 		background-color: var(--background-color);
+		word-spacing: 2px;
 		.content-portfolio {
-			h1,
+			margin-left: 15%;
+			margin-right: 15%;
+			h1 {
+				color: var(--text-color-1);
+				font-size: var(--font-size-2);
+			}
 			h2,
 			h4,
 			p,
 			li {
 				color: var(--text-color);
 			}
+
+			h2 {
+				font-size: var(--font-size-1);
+			}
+
+			.about {
+				p {
+					font-family: var(--font-family-sec-1);
+					font-size: var(--font-size-sec-0);
+					font-weight: 50;
+					text-align: justify;
+					line-height: 30px;
+				}
+			}
 		}
 
 		.disabled {
 			display: none;
 		}
+
+		.social-media {
+				font-size: 40px;
+				height: 100%;
+				width : 100%;
+				padding: 0px;
+				a {
+					color: var(--text-color-1);
+					margin-left: 20px;
+				}
+
+				a:hover {
+					color: var(--text-color);
+					font-size: 45px;
+				}
+			}
 
 		.introduction {
 			min-height: 90vh;
@@ -143,6 +193,7 @@
 			p:first-child {
 				color: var(--text-color-1);
 				font-size: var(--font-size-2);
+				font-weight: 900;
 				margin-top: 8vh;
 			}
 
@@ -156,18 +207,21 @@
 			p:nth-child(3) {
 				font-size: var(--font-size-3);
 				margin-bottom: var(--font-size-2);
-				font-weight: lighter;
+				font-weight: 500;
 			}
 
 			p:nth-child(4) {
 				margin-top: 1.5vh;
 				font-size: var(--font-size-1);
+				font-weight: 900;
 			}
 
 			p:nth-child(5) {
-				font-size: var(--font-size-1);
+				font-family: var(--font-family-sec-1);
+				font-size: var(--font-size-sec-0);
 				max-width: 700px;
-				font-weight: 50;
+				font-weight: 100;
+				line-height: 30px;
 			}
 
 			.container-connect {
@@ -187,22 +241,7 @@
 				color: var(--text-color-1);
 				height: 100%;
 				width: 100%;
-			}
-
-			.social-media {
-				font-size: 40px;
-				height: 100%;
-				width : 100%;
-				padding: 0px;
-				a {
-					color: var(--text-color-1);
-					margin-left: 20px;
-				}
-
-				a:hover {
-					color: var(--text-color);
-					font-size: 45px;
-				}
+				font-weight: 900;
 			}
 		}
 	}
