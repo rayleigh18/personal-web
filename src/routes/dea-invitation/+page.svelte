@@ -3,6 +3,10 @@
   import goodDaysAudio from '../../assets/good-days.mp3';
 
   let isPlaying = true;
+  let showRSVPDialog = false;
+  let showConfirmationDialog = false;
+  let noAttempts = 0;
+
   /**
 	 * @type {HTMLAudioElement | null}
 	 */
@@ -26,6 +30,24 @@
         audioElement.play();
       }
       isPlaying = !isPlaying;
+    }
+  }
+
+  function openRSVPDialog() {
+    showRSVPDialog = true;
+  }
+
+  function handleRSVP(response: boolean) {
+    if (response) {
+      showRSVPDialog = false;
+      showConfirmationDialog = true;
+    } else {
+      noAttempts++;
+      if (noAttempts >= 3) {
+        alert("Come on, my love! You know you want to say yes! 😉");
+      } else {
+        alert("Are you sure? Please try again! 🥺");
+      }
     }
   }
 </script>
@@ -55,7 +77,7 @@
       <span>Location: <a href="https://maps.app.goo.gl/X6D5aqnJG8y7egKw6" target="_blank" rel="noopener noreferrer" style="color: #ffd700; text-decoration: none;">The Westin, Jakarta</a></span>
     </div>
   </div>
-  <button class="rsvp-button">RSVP</button>
+  <button class="rsvp-button" on:click={openRSVPDialog}>RSVP</button>
   <footer>
     <p>Forever Yours,</p>
     <p>Oktavianus Irvan</p>
@@ -67,6 +89,27 @@
     <source src={goodDaysAudio} type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  {#if showRSVPDialog}
+    <div class="dialog-overlay">
+      <div class="dialog">
+        <h2>Will you join me, my love?</h2>
+        <div class="dialog-buttons">
+          <button on:click={() => handleRSVP(true)}>Yes</button>
+          <button on:click={() => handleRSVP(false)}>No</button>
+        </div>
+      </div>
+    </div>
+  {/if}
+
+  {#if showConfirmationDialog}
+    <div class="dialog-overlay">
+      <div class="dialog">
+        <h2>Can't wait to see you, my love! ❤️</h2>
+        <button on:click={() => showConfirmationDialog = false}>Close</button>
+      </div>
+    </div>
+  {/if}
 </main>
 
 <style>
@@ -208,5 +251,55 @@
     cursor: pointer;
     color: #ffd700;
     z-index: 1000;
+  }
+
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .dialog {
+    background-color: #1a1a2e;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 80%;
+  }
+
+  .dialog h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #ffd700;
+    margin-bottom: 1rem;
+  }
+
+  .dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .dialog button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dialog button:hover {
+    background-color: rgba(255, 215, 0, 0.2);
   }
 </style>
