@@ -6,7 +6,7 @@
 
 	isLetsConnectOpened.subscribe((isLetsConnectOpenedValue) => {
 		classSocialMedia = isLetsConnectOpenedValue ? 'social-media' : 'disabled';
-		classButtonConnect = (isLetsConnectOpenedValue ? 'disabled' : 'big-connect');
+		classButtonConnect = isLetsConnectOpenedValue ? 'disabled' : 'big-connect';
 	});
 </script>
 
@@ -29,7 +29,7 @@
 		<div
 			on:mouseenter={() => handleLetsConnect(true)}
 			on:mouseleave={() => handleLetsConnect(false)}
-			class='container-connect'
+			class="container-connect"
 		>
 			<button class={classButtonConnect}>Lets connect</button>
 			<div class={classSocialMedia}>
@@ -42,18 +42,19 @@
 	</div>
 
 	<div class="content-portfolio">
-		<div class="about" id="about" >
+		<div class="about" id="about">
 			<h1>A little about me</h1>
 			<p>
 				My name is Oktavianus Irvan Sitanggang and I use Okta as my nickname. My old and close
-				friend call me Irvan but its up to you how to call me. I'm a software developer who work on 
-				many thing, front-end, back-end, architecture, microcontroller etc. But mostly right now work on
-				backend and frontend. I'm from Indonesia. I like music, books, collaborating with people. Other 
-				thing that I liked is math and intrigued to math and use it in my daily (machine learning etc).<br><br>
-				I'm curious about how the world work, and want to learn new things, especially technologies.
-				I'm graduated from Bandung Institute of Technology with bachelor in electrical engineering with 
-				GPA 3.9. <br><br>
-				Build my way up by doing project in college and pursue career in web development. <br>
+				friend call me Irvan but its up to you how to call me. I'm a software developer who work on
+				many thing, front-end, back-end, architecture, microcontroller etc. But mostly right now
+				work on backend and frontend. I'm from Indonesia. I like music, books, collaborating with
+				people. Other thing that I liked is math and intrigued to math and use it in my daily
+				(machine learning etc).<br /><br />
+				I'm curious about how the world work, and want to learn new things, especially technologies. I'm
+				graduated from Bandung Institute of Technology with bachelor in electrical engineering with GPA
+				3.9. <br /><br />
+				Build my way up by doing project in college and pursue career in web development. <br />
 				But hey, I'm open to anything.
 			</p>
 		</div>
@@ -102,7 +103,7 @@
 		<!-- add skill -->
 		<div class="connect" id="connect">
 			<h1>Lets Connect</h1>
-			<div class='social-media '>
+			<div class="social-media">
 				<a href="https://www.instagram.com/irvan.sitanggang/"><span class="fa fa-instagram" /></a>
 				<a href="https://twitter.com/FindIrvan/"><span class="fa fa-twitter" /></a>
 				<a href="https://www.linkedin.com/in/oktavianusirvans/"><span class="fa fa-linkedin" /></a>
@@ -165,20 +166,20 @@
 		}
 
 		.social-media {
-				font-size: 40px;
-				height: 100%;
-				width : 100%;
-				padding: 0px;
-				a {
-					color: var(--text-color-1);
-					margin-left: 20px;
-				}
-
-				a:hover {
-					color: var(--text-color);
-					font-size: 45px;
-				}
+			font-size: 40px;
+			height: 100%;
+			width: 100%;
+			padding: 0px;
+			a {
+				color: var(--text-color-1);
+				margin-left: 20px;
 			}
+
+			a:hover {
+				color: var(--text-color);
+				font-size: 45px;
+			}
+		}
 
 		.introduction {
 			min-height: 90vh;

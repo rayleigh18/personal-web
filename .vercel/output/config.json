@@ -2,6 +2,19 @@
 	"version": 3,
 	"routes": [
 		{
+			"src": ".*",
+			"continue": true,
+			"transforms": [
+				{
+					"type": "request.query",
+					"op": "delete",
+					"target": {
+						"key": "__pathname"
+					}
+				}
+			]
+		},
+		{
 			"src": "/_app/immutable/.+",
 			"headers": {
 				"cache-control": "public, immutable, max-age=31536000"
@@ -11,8 +24,37 @@
 			"handle": "filesystem"
 		},
 		{
+			"src": "/_app/immutable/.+",
+			"status": 404,
+			"continue": false
+		},
+		{
+			"src": "^/?(?:/__data.json)?$",
+			"dest": "/"
+		},
+		{
+			"src": "^/dea-invitation/?(?:/__data.json)?$",
+			"dest": "/dea-invitation"
+		},
+		{
+			"src": "^/dea-page/?(?:/__data.json)?$",
+			"dest": "/dea-page"
+		},
+		{
+			"src": "^/laufey/?(?:/__data.json)?$",
+			"dest": "/laufey"
+		},
+		{
+			"src": "^/two-year-anniversary/?(?:/__data.json)?$",
+			"dest": "/two-year-anniversary"
+		},
+		{
+			"src": "^/valentine/?(?:/__data.json)?$",
+			"dest": "/valentine"
+		},
+		{
 			"src": "/.*",
-			"dest": "/fn"
+			"dest": "/![-]/catchall"
 		}
 	],
 	"overrides": {}

@@ -220,9 +220,12 @@
 	.grid-overlay {
 		position: absolute;
 		inset: 0;
-		background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+		background-image:
+			linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
 			linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-		background-size: 48px 48px, 48px 48px;
+		background-size:
+			48px 48px,
+			48px 48px;
 		mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 70%);
 		opacity: 0.5;
 	}
@@ -238,7 +241,8 @@
 	.constellation {
 		position: absolute;
 		inset: 0;
-		background: radial-gradient(circle at 12% 22%, rgba(255, 248, 232, 0.35) 0.5px, transparent 1px),
+		background:
+			radial-gradient(circle at 12% 22%, rgba(255, 248, 232, 0.35) 0.5px, transparent 1px),
 			radial-gradient(circle at 38% 18%, rgba(255, 255, 255, 0.2) 0.45px, transparent 1px),
 			radial-gradient(circle at 72% 28%, rgba(255, 255, 255, 0.25) 0.4px, transparent 1px),
 			radial-gradient(circle at 88% 40%, rgba(255, 248, 232, 0.3) 0.5px, transparent 1px),
@@ -264,7 +268,9 @@
 			rgba(10, 9, 14, 0.92) 50%,
 			rgba(12, 11, 17, 0.88) 100%
 		);
-		box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+		box-shadow:
+			0 32px 80px rgba(0, 0, 0, 0.45),
+			inset 0 1px 0 rgba(255, 255, 255, 0.06);
 		animation: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 	}
 
@@ -382,7 +388,9 @@
 		border: 1px solid rgba(237, 232, 224, 0.12);
 		border-radius: 2px;
 		box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-		transition: transform 0.35s ease, box-shadow 0.35s ease;
+		transition:
+			transform 0.35s ease,
+			box-shadow 0.35s ease;
 	}
 
 	.memories__figure:hover .memories__img,
@@ -499,7 +507,9 @@
 		gap: 0.35rem;
 		color: #e8c4a8;
 		text-decoration: none;
-		transition: color 0.2s ease, text-underline-offset 0.2s ease;
+		transition:
+			color 0.2s ease,
+			text-underline-offset 0.2s ease;
 	}
 
 	.map-card__place:hover {
