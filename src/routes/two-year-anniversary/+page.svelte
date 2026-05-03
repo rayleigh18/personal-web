@@ -14,11 +14,11 @@
 
 <main class="invite" aria-labelledby="invite-title">
 	<div class="atmosphere" aria-hidden="true">
-		<div class="glow glow--a" />
-		<div class="glow glow--b" />
-		<div class="grid-overlay" />
-		<div class="noise" />
-		<div class="constellation" />
+		<div class="glow glow--a"></div>
+		<div class="glow glow--b"></div>
+		<div class="grid-overlay"></div>
+		<div class="noise"></div>
+		<div class="constellation"></div>
 	</div>
 
 	<div class="shell">
@@ -103,8 +103,8 @@
 
 		<div class="map-card" role="region" aria-labelledby="map-heading">
 			<div class="map-pin" aria-hidden="true">
-				<span class="map-pin__ring" />
-				<span class="map-pin__dot" />
+				<span class="map-pin__ring"></span>
+				<span class="map-pin__dot"></span>
 			</div>
 			<div class="map-card__body">
 				<p id="map-heading" class="map-card__label">Coordinates for the night</p>
@@ -369,42 +369,105 @@
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.65rem;
+		grid-template-columns: repeat(12, 1fr);
+		grid-auto-rows: minmax(1rem, auto);
+		gap: clamp(0.75rem, 2vw, 1rem);
+		align-items: end;
+	}
+
+	.memories__grid li {
+		position: relative;
+	}
+
+	.memories__grid li:nth-child(1) {
+		grid-column: 1 / span 5;
+		grid-row: 1 / span 2;
+	}
+
+	.memories__grid li:nth-child(2) {
+		grid-column: 6 / -1;
+		grid-row: 1;
+		padding-top: clamp(1.5rem, 5vw, 3rem);
+	}
+
+	.memories__grid li:nth-child(3) {
+		grid-column: 4 / -1;
+		grid-row: 2;
+		margin-top: -1.25rem;
 	}
 
 	.memories__figure {
+		position: relative;
 		margin: 0;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
+		border: 1px solid rgba(237, 232, 224, 0.14);
+		border-radius: 18px;
+		background: rgba(246, 241, 234, 0.04);
+		box-shadow:
+			0 18px 46px rgba(0, 0, 0, 0.42),
+			inset 0 1px 0 rgba(255, 255, 255, 0.08);
 	}
 
 	.memories__img {
 		display: block;
 		width: 100%;
-		aspect-ratio: 3 / 4;
+		height: 100%;
+		aspect-ratio: 4 / 5;
 		object-fit: cover;
-		border: 1px solid rgba(237, 232, 224, 0.12);
-		border-radius: 2px;
-		box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+		border-radius: inherit;
 		transition:
 			transform 0.35s ease,
-			box-shadow 0.35s ease;
+			filter 0.35s ease;
+		filter: saturate(0.9) contrast(1.02);
+	}
+
+	.memories__grid li:nth-child(1) .memories__img {
+		aspect-ratio: 4 / 5.35;
+		object-position: 52% 44%;
+	}
+
+	.memories__grid li:nth-child(2) .memories__img {
+		aspect-ratio: 16 / 11;
+		object-position: 58% 45%;
+	}
+
+	.memories__grid li:nth-child(3) .memories__img {
+		aspect-ratio: 16 / 10;
+		object-position: 52% 72%;
+	}
+
+	.memories__figure::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background:
+			linear-gradient(180deg, transparent 46%, rgba(7, 6, 10, 0.72) 100%),
+			radial-gradient(circle at 18% 14%, rgba(232, 196, 168, 0.16), transparent 36%);
+		pointer-events: none;
 	}
 
 	.memories__figure:hover .memories__img,
 	.memories__figure:focus-within .memories__img {
-		transform: translateY(-2px);
-		box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+		transform: scale(1.035);
+		filter: saturate(1) contrast(1.04);
 	}
 
 	.memories__caption {
-		margin-top: 0.5rem;
+		position: absolute;
+		z-index: 1;
+		left: 0.85rem;
+		right: 0.85rem;
+		bottom: 0.8rem;
+		margin: 0;
 		font-size: 0.72rem;
 		letter-spacing: 0.06em;
-		color: rgba(237, 232, 224, 0.5);
+		color: rgba(246, 241, 234, 0.78);
 		line-height: 1.35;
+		text-shadow: 0 1px 16px rgba(0, 0, 0, 0.75);
 	}
 
 	.placeholder {
@@ -639,10 +702,25 @@
 			gap: 1.25rem;
 		}
 
+		.memories__grid li:nth-child(1),
+		.memories__grid li:nth-child(2),
+		.memories__grid li:nth-child(3) {
+			grid-column: auto;
+			grid-row: auto;
+			margin-top: 0;
+			padding-top: 0;
+		}
+
 		.memories__img {
 			aspect-ratio: 4 / 5;
 			max-height: min(70vh, 420px);
 			margin-inline: auto;
+		}
+
+		.memories__grid li:nth-child(1) .memories__img,
+		.memories__grid li:nth-child(2) .memories__img,
+		.memories__grid li:nth-child(3) .memories__img {
+			aspect-ratio: 4 / 5;
 		}
 	}
 </style>
