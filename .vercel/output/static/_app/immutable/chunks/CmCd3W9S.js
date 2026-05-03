@@ -1,1 +1,0 @@
-var e=``+new URL(`../assets/good-days.BdRH4mHV.mp3`,import.meta.url).href;export{e as t};
